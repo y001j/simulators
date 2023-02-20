@@ -11,8 +11,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/amine-amaach/simulators/ioTSensorsMQTT/services"
-	"github.com/amine-amaach/simulators/ioTSensorsMQTT/utils"
+	"github.com/y001j/simulators/ioTSensorsMQTT/services"
+	"github.com/y001j/simulators/ioTSensorsMQTT/utils"
 )
 
 var (

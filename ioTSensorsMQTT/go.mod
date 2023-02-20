@@ -1,4 +1,4 @@
-module github.com/amine-amaach/simulators/ioTSensorsMQTT
+module github.com/y001j/simulators/ioTSensorsMQTT
 
 go 1.19
 

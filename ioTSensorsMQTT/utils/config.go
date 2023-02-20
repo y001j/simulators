@@ -22,7 +22,7 @@ type mqttBroker struct {
 	KeepAlive            uint16 `mapstructure:"KEEP_ALIVE"`
 	RetryDelay           uint16 `mapstructure:"RETRY_DELAY"`
 	RootTopic            string `mapstructure:"ROOT_TOPIC"`
-	DelayBetweenMessages int `mapstructure:"SET_DELAY_BETWEEN_MESSAGES"`
+	DelayBetweenMessages int    `mapstructure:"SET_DELAY_BETWEEN_MESSAGES"`
 	RandomizeDelay       bool   `mapstructure:"RANDOMIZE_DELAY_BETWEEN_MESSAGES"`
 }
 
@@ -39,9 +39,10 @@ func GetConfig() *Config {
 	if cfg == nil {
 		v := viper.New()
 
-		v.SetConfigName("config")    // name of config file (without extension)
-		v.SetConfigType("json")      // REQUIRED if the config file does not have the extension in the name
-		v.AddConfigPath("./configs") // look for config in the working directory
+		v.SetConfigName("config") // name of config file (without extension)
+		v.SetConfigType("json")   // REQUIRED if the config file does not have the extension in the name
+		//v.AddConfigPath("configs") // look for config in the working directory
+		v.SetConfigFile("../configs/config.json")
 
 		if err := v.ReadInConfig(); err != nil {
 			if _, ok := err.(viper.ConfigFileNotFoundError); ok {
@@ -67,7 +68,7 @@ func GetConfig() *Config {
 }
 
 func setDefault(v *viper.Viper) {
-	viper.SetDefault("SERVER_URL", "mqtt://broker.hivemq.com:1883")
+	viper.SetDefault("SERVER_URL", "ws://150.158.13.2:8083")
 	viper.SetDefault("SERVER_USER", "")
 	viper.SetDefault("SERVER_PWD", "")
 	viper.SetDefault("SERVER_QOS", 2)

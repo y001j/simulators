@@ -1,6 +1,6 @@
 {
     "MQTT_BROKER": {
-        "SERVER_URL":"mqtt://broker.hivemq.com:1883",
+        "SERVER_URL": "mqtt://150.158.13.2:1883",
         "SERVER_USER": "",
         "SERVER_PWD": "",
         "SERVER_RETAIN": "true",
@@ -11,8 +11,7 @@
         "ROOT_TOPIC": "IoTSensorsMQTT",
         "SET_DELAY_BETWEEN_MESSAGES" : 5,
         "RANDOMIZE_DELAY_BETWEEN_MESSAGES" : "true"
-    },    
-    
+    },
     "SIMULATORS": [
         {
             "Name" : "Temperature",

@@ -8,9 +8,9 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/amine-amaach/simulators/ioTSensorsMQTT/utils"
 	"github.com/eclipse/paho.golang/autopaho"
 	"github.com/eclipse/paho.golang/paho"
+	"github.com/y001j/simulators/ioTSensorsMQTT/utils"
 )
 
 type MQTTService struct{}
@@ -40,7 +40,9 @@ func (MQTTService) Connect(ctx context.Context, logger *log.Logger, cfg *utils.C
 			logger.Println(utils.Colorize("MQTT Connection up ✅", utils.Green))
 		},
 		OnConnectError: func(err error) {
+			logger.Println(utils.Colorize(cfg.MQTTBroker.ServerURL, utils.Yellow))
 			logger.Printf(utils.Colorize(fmt.Sprintf("Error whilst attempting connection ❌ %s\n", err), utils.Red))
+
 		},
 		ClientConfig: paho.ClientConfig{
 			ClientID: cfg.MQTTBroker.ClientID,
